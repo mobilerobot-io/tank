@@ -82,10 +82,9 @@ ARDUINO_LIBS	= Adafruit_Motor_Shield_library
 include $(ARDMK_DIR)/Arduino.mk
 
 
-upload:
-		gort arduino upload  bin/uno/tank/tank.hex /dev/tty.usbmodem1421 
+# upload:
+# 		gort arduino upload  bin/uno/tank/tank.hex /dev/tty.usbmodem1421 
 
-clean::
-	rm -rf *~ bin
-	
-.PHONY: upload clean
+# clean::
+# 	rm -rf *~ bin
+# .PHONY: upload clean

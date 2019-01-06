@@ -23,26 +23,51 @@ int switch_direction(int dir) {
 	return dir;
 }
 
+void forward(AF_DCMotor *m, int speed) {
+	m->setSpeed(speed);
+	m->run(FORWARD);
+}
 
-void loop() {
+void reverse(AF_DCMotor *m, int speed) {
+	m->setSpeed(speed);
+	m->run(BACKWARD);
+}
+
+void back_and_forth_loop() {
 
 	Serial.print("Start in ");
 	Serial.println(direction);
 
   // turn on motor
-  m1.setSpeed(200);
-	m1.run(direction);
-
-	direction = switch_direction(direction);
-	Serial.print("  switch to ");
-	Serial.println(direction);
-  m2.setSpeed(200);
-	m2.run(direction);
+	forward(&m1, 200);
+	reverse(&m2, 200);
 
 	delay(2000);
+
+  // turn on motor
+	forward(&m2, 200);
+	reverse(&m1, 200);
+	delay(2000);
+	
   m1.run(RELEASE);
   m2.run(RELEASE);
 
 	Serial.println("released  ... ");
-
 }
+
+void spin_right_loop() {
+	Serial.println("Spinning wheel goes spinning around");
+	forward(&m1, 100);
+	forward(&m2, 100);
+
+	delay(2000);
+	m2.run(RELEASE);
+	m1.run(RELEASE);
+}
+
+void loop() {
+	//back_and_forth_loop();
+	spin_right_loop();
+}
+
+
