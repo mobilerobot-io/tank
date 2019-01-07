@@ -39,14 +39,14 @@ void back_and_forth_loop() {
 	Serial.println(direction);
 
   // turn on motor
-	forward(&m1, 200);
-	reverse(&m2, 200);
+	forward(&m1, 300);
+	reverse(&m2, 300);
 
 	delay(2000);
 
   // turn on motor
-	forward(&m2, 200);
-	reverse(&m1, 200);
+	forward(&m2, 300);
+	reverse(&m1, 300);
 	delay(2000);
 	
   m1.run(RELEASE);
@@ -57,8 +57,8 @@ void back_and_forth_loop() {
 
 void spin_right_loop() {
 	Serial.println("Spinning wheel goes spinning around");
-	forward(&m1, 100);
-	forward(&m2, 100);
+	forward(&m1, 300);
+	forward(&m2, 300);
 
 	delay(2000);
 	m2.run(RELEASE);
