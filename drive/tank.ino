@@ -5,13 +5,12 @@
 #include <AFMotor.h>
 
 AF_DCMotor m1(1);
-AF_DCMotor m2(2);
+// AF_DCMotor m2(2);
 
 // The tank can only be going in one direction
 int direction = FORWARD;
 
 void setup() {
-
   Serial.begin(9600);           // set up Serial library at 9600 bps
 	Serial.print("Get your motors running, out on the hiway ... \n");
 }
@@ -40,17 +39,17 @@ void back_and_forth_loop() {
 
   // turn on motor
 	forward(&m1, 300);
-	reverse(&m2, 300);
+	//forward(&m2, 300);
 
 	delay(2000);
 
   // turn on motor
-	forward(&m2, 300);
+	//forward(&m2, 300);
 	reverse(&m1, 300);
 	delay(2000);
 	
   m1.run(RELEASE);
-  m2.run(RELEASE);
+  //m2.run(RELEASE);
 
 	Serial.println("released  ... ");
 }
@@ -58,10 +57,10 @@ void back_and_forth_loop() {
 void spin_right_loop() {
 	Serial.println("Spinning wheel goes spinning around");
 	forward(&m1, 300);
-	forward(&m2, 300);
+	//forward(&m2, 300);
 
 	delay(2000);
-	m2.run(RELEASE);
+	//m2.run(RELEASE);
 	m1.run(RELEASE);
 }
 
